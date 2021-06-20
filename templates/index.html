@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Todoリスト</h1>
+{{todo_result}}<br>
+<form action="/" method="POST">
+    <label for="title">Title</label>
+    <input type="text" name="title">
+    <input type="submit" value="Create">
+</form>
+<ul>
+    {% for key, title in todo_result.items() %}
+    <li>{{title}}</li>
+    <a href="/update/{{ key }}" role="button">更新</a>
+    <a href="/delete/{{ key }}" role="button">削除</a>
+    {% endfor %}
+</ul>
+</body>
+</html>
